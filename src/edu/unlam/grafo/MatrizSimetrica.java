@@ -21,7 +21,6 @@ public class MatrizSimetrica {
 		}
 
 		// Formula loca que el profe descubriò con su alumno preferido.
-		// #Pedofilo
 		return this.vector[f * this.n + c - (f * f + 3 * f + 2) / 2];
 	}
 
