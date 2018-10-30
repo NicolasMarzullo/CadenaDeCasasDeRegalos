@@ -1,15 +1,15 @@
 package edu.unlam.grafo;
 
-public class MatrizSimetricaConInferior {
+public class GrafoMatriz {
 	private int n;
 	private int[][] matrizTI;
 
-	public MatrizSimetricaConInferior() {
+	public GrafoMatriz() {
 		// creo filas
 		matrizTI = new int[n][];
 		// creo las columnas
 		// Para la fila 1 va a haber 1 columna, para la 2... dos y asi
-		// sucesivamente
+		// sucesivamente. La posicion 0 nunca se utiliza
 		for (int i = 1; i < n; i++) {
 			matrizTI[i] = new int[i];
 		}

@@ -1,11 +1,11 @@
 package edu.unlam.grafo;
 
-public class MatrizSimetrica {
+public class GrafoVector {
 
 	private int n;
 	private int[] vector;
 
-	public MatrizSimetrica(int n) {
+	public GrafoVector(int n) {
 		this.n = n;
 		this.vector = new int[n * (n - 1) / 2];
 	}
@@ -20,7 +20,7 @@ public class MatrizSimetrica {
 			c = aux;
 		}
 
-		// Formula loca que el profe descubriò con su alumno preferido.
+		// Formula loca que el profe descubriò con su alumno.
 		return this.vector[f * this.n + c - (f * f + 3 * f + 2) / 2];
 	}
 
@@ -35,8 +35,7 @@ public class MatrizSimetrica {
 			c = aux;
 		}
 
-		// Formula loca que el profe descubriò con su alumno preferido.
-		// #Pedofilo
+		// Formula loca que el profe descubriò con su alumno
 		this.vector[f * this.n + c - (f * f + 3 * f + 2) / 2] = valor;
 	}
 }

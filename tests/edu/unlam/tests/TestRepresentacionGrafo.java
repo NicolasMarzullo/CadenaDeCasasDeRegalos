@@ -3,13 +3,13 @@ package edu.unlam.tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.unlam.grafo.MatrizSimetrica;
+import edu.unlam.grafo.GrafoVector;
 
 
 public class TestRepresentacionGrafo {
 	@Test
 	public void testRepresentacionConVector(){
-		MatrizSimetrica m = new MatrizSimetrica(5);
+		GrafoVector m = new GrafoVector(5);
 		
 		//Ver caso dibujado en una hoja
 		m.set(0, 1, 1);
