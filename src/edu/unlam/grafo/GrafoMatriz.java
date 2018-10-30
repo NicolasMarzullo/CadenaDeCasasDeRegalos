@@ -1,11 +1,12 @@
 package edu.unlam.grafo;
 
+import java.util.Arrays;
+
 public class GrafoMatriz {
 	private int n;
 	private int[][] matrizTI;
 
-	
-	//Solucion propuesta por el profe Ponce de León
+	// Solucion propuesta por el profe Ponce de León
 	public GrafoMatriz(int n) {
 		// creo filas
 		matrizTI = new int[n][];
@@ -16,35 +17,41 @@ public class GrafoMatriz {
 			matrizTI[i] = new int[i];
 		}
 	}
-	
-	public int get(int f, int c){
+
+	public int get(int f, int c) {
 		int aux;
-		
-		if(c==f)
+
+		if (c == f || c < 0 || f < 0)
 			return -1;
-		
-		if(c>f){
+
+		if (c > f) {
 			aux = c;
 			c = f;
 			f = aux;
 		}
-		
+
 		return this.matrizTI[f][c];
 	}
-	
-	public void set(int f, int c, int valor){
+
+	public void set(int f, int c, int valor) {
 		int aux;
-		
-		if(f==c)
+
+		if (f == c)
 			return;
-		
-		if(c>f){
+
+		if (c > f) {
 			aux = c;
 			c = f;
 			f = aux;
 		}
-		
+
 		this.matrizTI[f][c] = valor;
 	}
 
+	@Override
+	public String toString() {
+		return "GrafoMatriz [n=" + n + ", matrizTI=" + Arrays.toString(matrizTI) + "]";
+	}
+
+	
 }
