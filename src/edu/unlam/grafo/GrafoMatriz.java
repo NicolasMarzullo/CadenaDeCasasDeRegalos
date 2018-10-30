@@ -4,7 +4,9 @@ public class GrafoMatriz {
 	private int n;
 	private int[][] matrizTI;
 
-	public GrafoMatriz() {
+	
+	//Solucion propuesta por el profe Ponce de León
+	public GrafoMatriz(int n) {
 		// creo filas
 		matrizTI = new int[n][];
 		// creo las columnas

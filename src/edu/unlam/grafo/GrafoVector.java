@@ -5,6 +5,7 @@ public class GrafoVector {
 	private int n;
 	private int[] vector;
 
+	//Solucion propuesta por Blautzik
 	public GrafoVector(int n) {
 		this.n = n;
 		this.vector = new int[n * (n - 1) / 2];
