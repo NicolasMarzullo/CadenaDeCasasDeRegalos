@@ -10,15 +10,18 @@ public class ArchivoRegalo {
 
 	public static GrafoMatriz cargarDatos(String path) throws FileNotFoundException {
 		Scanner sc = new Scanner(new File(path));
-		int n = sc.nextInt(), nro;
-		
+		int n = sc.nextInt();
+		int nodoActual, nodoSig;
+		int i = 0;
+
 		GrafoMatriz grafoMatriz = new GrafoMatriz(n);
-		
-		for (int i = 0; i < n; i++) {
-			if((nro = sc.nextInt())!=-1)
-				grafoMatriz.set(i, nro, 1);
+
+		while (i < n) {
+			nodoActual = sc.nextInt();
+			while ((nodoSig = sc.nextInt()) != -1)
+				grafoMatriz.set(nodoActual-1, nodoSig-1, 1);
+			i++;
 		}
-			
 
 		return grafoMatriz;
 	}

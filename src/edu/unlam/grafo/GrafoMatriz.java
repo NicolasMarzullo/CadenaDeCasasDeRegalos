@@ -48,10 +48,5 @@ public class GrafoMatriz {
 		this.matrizTI[f][c] = valor;
 	}
 
-	@Override
-	public String toString() {
-		return "GrafoMatriz [n=" + n + ", matrizTI=" + Arrays.toString(matrizTI) + "]";
-	}
-
 	
 }
