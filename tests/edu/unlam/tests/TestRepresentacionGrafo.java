@@ -1,10 +1,14 @@
 package edu.unlam.tests;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import edu.unlam.grafo.GrafoMatriz;
 import edu.unlam.grafo.GrafoVector;
+import edu.unlam.grafo.Nodo;
+import edu.unlam.grafo.Secuencia;
 
 public class TestRepresentacionGrafo {
 	@Test
@@ -66,5 +70,44 @@ public class TestRepresentacionGrafo {
 		Assert.assertEquals(0, m.get(0, 3), 0.0);
 		Assert.assertEquals(0, m.get(4, 0), 0.0);
 	}
+	
+	
+	@Test
+	public void testSecuenciaMatula() {
+		GrafoMatriz m = new GrafoMatriz(5);
+
+		// Ver caso dibujado en una hoja
+		m.set(0, 1, 1);
+		m.set(0, 2, 1);
+		m.set(1, 3, 1);
+		m.set(2, 3, 1);
+		m.set(3, 4, 1);
+
+		ArrayList<Nodo> nodos = Secuencia.calcularMatula(m);
+		
+		for(Nodo n: nodos)
+			System.out.println(n);
+		
+	}
+	
+	@Test
+	public void testSecuenciaWelshPowel() {
+		GrafoMatriz m = new GrafoMatriz(5);
+
+		// Ver caso dibujado en una hoja
+		m.set(0, 1, 1);
+		m.set(0, 2, 1);
+		m.set(1, 3, 1);
+		m.set(2, 3, 1);
+		m.set(3, 4, 1);
+
+		ArrayList<Nodo> nodos = Secuencia.calcularWelshPowel(m);
+		
+		for(Nodo n: nodos)
+			System.out.println(n);
+		
+	}
+	
+	
 
 }

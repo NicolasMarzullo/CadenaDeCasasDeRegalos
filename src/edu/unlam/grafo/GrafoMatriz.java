@@ -8,6 +8,7 @@ public class GrafoMatriz {
 
 	// Solucion propuesta por el profe Ponce de León
 	public GrafoMatriz(int n) {
+		this.n = n;
 		// creo filas
 		matrizTI = new int[n][];
 		// creo las columnas
@@ -48,5 +49,10 @@ public class GrafoMatriz {
 		this.matrizTI[f][c] = valor;
 	}
 
+	public int getN() {
+		return n;
+	}
+
+	
 	
 }
