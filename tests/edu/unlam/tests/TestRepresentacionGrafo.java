@@ -108,6 +108,24 @@ public class TestRepresentacionGrafo {
 		
 	}
 	
+	@Test
+	public void testSecuenciaRandom() {
+		GrafoMatriz m = new GrafoMatriz(5);
+
+		// Ver caso dibujado en una hoja
+		m.set(0, 1, 1);
+		m.set(0, 2, 1);
+		m.set(1, 3, 1);
+		m.set(2, 3, 1);
+		m.set(3, 4, 1);
+
+		ArrayList<Nodo> nodos = Secuencia.calcularAleaotrio(m);
+		
+		for(Nodo n: nodos)
+			System.out.println(n);
+		
+	}
+	
 	
 
 }
