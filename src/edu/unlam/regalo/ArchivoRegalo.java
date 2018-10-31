@@ -8,7 +8,7 @@ import edu.unlam.grafo.GrafoMatriz;
 
 public class ArchivoRegalo {
 
-	public static GrafoMatriz cargarDatos(String path) throws FileNotFoundException {
+	public static CasasDeRegalos cargarDatos(String path) throws FileNotFoundException {
 		Scanner sc = new Scanner(new File(path));
 		int n = sc.nextInt();
 		int nodoActual, nodoSig;
@@ -23,7 +23,9 @@ public class ArchivoRegalo {
 			i++;
 		}
 
-		return grafoMatriz;
+		sc.close();
+		return new CasasDeRegalos(grafoMatriz);
+		
 	}
 
 }

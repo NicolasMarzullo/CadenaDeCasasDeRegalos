@@ -10,7 +10,7 @@ import edu.unlam.grafo.GrafoVector;
 import edu.unlam.grafo.Nodo;
 import edu.unlam.grafo.Secuencia;
 
-public class TestRepresentacionGrafo {
+public class TestGrafo {
 	@Test
 	public void testRepresentacionConVector() {
 		GrafoVector m = new GrafoVector(5);
@@ -83,10 +83,10 @@ public class TestRepresentacionGrafo {
 		m.set(2, 3, 1);
 		m.set(3, 4, 1);
 
-		ArrayList<Nodo> nodos = Secuencia.calcularMatula(m);
+		ArrayList<Integer> secuencia = Secuencia.calcularMatula(m);
 		
-		for(Nodo n: nodos)
-			System.out.println(n);
+		for(Integer i: secuencia)
+			System.out.println(i);
 		
 	}
 	
@@ -101,10 +101,10 @@ public class TestRepresentacionGrafo {
 		m.set(2, 3, 1);
 		m.set(3, 4, 1);
 
-		ArrayList<Nodo> nodos = Secuencia.calcularWelshPowel(m);
+		ArrayList<Integer> secuencia = Secuencia.calcularWelshPowel(m);
 		
-		for(Nodo n: nodos)
-			System.out.println(n);
+		for(Integer i: secuencia)
+			System.out.println(i);
 		
 	}
 	
@@ -119,10 +119,10 @@ public class TestRepresentacionGrafo {
 		m.set(2, 3, 1);
 		m.set(3, 4, 1);
 
-		ArrayList<Nodo> nodos = Secuencia.calcularAleaotrio(m);
+		ArrayList<Integer> secuencia = Secuencia.calcularAleaotrio(m);
 		
-		for(Nodo n: nodos)
-			System.out.println(n);
+		for(Integer i: secuencia)
+			System.out.println(i);
 		
 	}
 	
