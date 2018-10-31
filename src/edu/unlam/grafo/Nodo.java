@@ -2,7 +2,6 @@ package edu.unlam.grafo;
 
 public class Nodo implements Comparable<Nodo> {
 	private int id;
-	private int color = 0;
 	private int grado;
 
 	public Nodo(int id) {
@@ -21,16 +20,11 @@ public class Nodo implements Comparable<Nodo> {
 
 	@Override
 	public String toString() {
-		return "Nodo [id=" + id + ", color=" + color + ", grado=" + grado + "]";
+		return "Nodo [id=" + id + ", grado=" + grado + "]";
 	}
-	
-	public void setColor(int color) {
-		this.color = color;
+
+	public int getId() {
+		return id;
 	}
-	
-	public int getColor() {
-		return this.color;
-	}
-	
 
 }
