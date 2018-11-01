@@ -1,14 +1,18 @@
 package edu.unlam.tests;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import edu.unlam.grafo.Coloreo;
 import edu.unlam.grafo.GrafoMatriz;
 import edu.unlam.grafo.GrafoVector;
 import edu.unlam.grafo.Nodo;
 import edu.unlam.grafo.Secuencia;
+import edu.unlam.regalo.ArchivoRegalo;
+import edu.unlam.regalo.CasasDeRegalos;
 
 public class TestGrafo {
 	@Test
@@ -126,6 +130,17 @@ public class TestGrafo {
 		
 	}
 	
+	
+	@Test
+	public void testAlgoritmoColoreo() throws FileNotFoundException {
+		CasasDeRegalos casas = ArchivoRegalo.cargarDatos("tests/edu/unlam/tests/in/01_CasoEnunciado.in");
+		
+		ArrayList<Nodo> nodosPintados = Coloreo.colorear(casas.getMatAdyacencia(), Secuencia.calcularCreciente(casas.getMatAdyacencia()));
+		
+		for(Nodo n: nodosPintados)
+			System.out.println(n);
+		
+	}
 	
 
 }

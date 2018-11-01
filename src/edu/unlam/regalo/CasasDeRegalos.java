@@ -18,11 +18,16 @@ public class CasasDeRegalos {
 	public ArrayList<Nodo> resolver() {
 		ArrayList<Nodo> resultado = new ArrayList<>();
 		ArrayList<Nodo> nodosPintados;
-		
-		nodosPintados = Coloreo.colorear(this.matAdyacencia);
-		
-		//Hacer lo que pide el enunciado, aquellos nodos que tengan color maximo.
-				
+		ArrayList<Integer> secuencia = Secuencia.calcularCreciente(this.matAdyacencia);
+		// Coloreo el grafo con una secuencia ya calculada
+		nodosPintados = Coloreo.colorear(this.matAdyacencia, secuencia);
+		int colorMax = nodosPintados.get(nodosPintados.size() - 1).getColor();
+
+		for (int i = 0; i < nodosPintados.size() - 1; i++) {
+			if (nodosPintados.get(i).getColor() == colorMax)
+				resultado.add(nodosPintados.get(i));
+		}
+
 		return resultado;
 	}
 

@@ -9,7 +9,7 @@ public class Secuencia {
 
 	// Algoritmo que calcula la secuencia a recorrer en orden decreciente
 	public static ArrayList<Integer> calcularWelshPowel(GrafoMatriz grafo) {
-		int n = grafo.getN(), cont = 0, i, j;
+		int n = grafo.getN(), i, j;
 		ArrayList<Integer> secuencia = new ArrayList<>();
 
 		int[] grados = new int[n];
@@ -37,7 +37,7 @@ public class Secuencia {
 
 	// Algoritmo que calcula la secuencia a recorrer en orden creciente
 	public static ArrayList<Integer> calcularMatula(GrafoMatriz grafo) {
-		int n = grafo.getN(), cont = 0, i, j;
+		int n = grafo.getN(), i, j;
 		ArrayList<Integer> secuencia = new ArrayList<>();
 
 		int[] grados = new int[n];

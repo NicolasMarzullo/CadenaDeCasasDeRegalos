@@ -2,9 +2,12 @@ package edu.unlam.regalo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import edu.unlam.grafo.GrafoMatriz;
+import edu.unlam.grafo.Nodo;
 
 public class ArchivoRegalo {
 
@@ -28,4 +31,15 @@ public class ArchivoRegalo {
 		
 	}
 
+	public static void salida(String path, ArrayList<Nodo> resultado) throws FileNotFoundException{
+		PrintWriter pw = new PrintWriter(new File(path));
+		
+		pw.println(resultado.size());
+		
+		for(Nodo n: resultado) {
+			pw.println(n.getId()+1 + "\t");
+		}
+		
+		pw.close();
+	}
 }

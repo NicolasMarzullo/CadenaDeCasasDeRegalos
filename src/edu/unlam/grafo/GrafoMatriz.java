@@ -1,7 +1,5 @@
 package edu.unlam.grafo;
 
-import java.util.Arrays;
-
 public class GrafoMatriz {
 	private int n;
 	private int[][] matrizTI;

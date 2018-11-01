@@ -25,16 +25,11 @@ public class TestCadenaDeCasasDeRegalos {
 		}
 
 	}
-	
+
 	@Test
-	public void testAlgoritmoPintado() throws FileNotFoundException {
-		CasasDeRegalos casas = ArchivoRegalo.cargarDatos("tests/edu/unlam/tests/in/01_CasoEnunciado.in");
-		 
-		ArrayList<Nodo> nodosPintados = casas.resolver();
-		
-		for(Nodo n: nodosPintados)
-			System.out.println(n);
-		
+	public void testCasoEnunciado() throws FileNotFoundException {
+		CasasDeRegalos locales = ArchivoRegalo.cargarDatos("tests/edu/unlam/tests/in/01_CasoEnunciado.in");
+		ArchivoRegalo.salida("tests/edu/unlam/tests/out/01_CasoEnunciado.out", locales.resolver());
 	}
 
 }
