@@ -37,7 +37,7 @@ public class ArchivoRegalo {
 		pw.println(resultado.size());
 		
 		for(Nodo n: resultado) {
-			pw.println(n.getId()+1 + "\t");
+			pw.print(n.getId()+1 + " ");
 		}
 		
 		pw.close();
