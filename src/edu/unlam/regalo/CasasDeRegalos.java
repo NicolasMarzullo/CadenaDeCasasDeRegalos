@@ -2,6 +2,7 @@ package edu.unlam.regalo;
 
 import java.util.ArrayList;
 
+import edu.unlam.grafo.Coloreo;
 import edu.unlam.grafo.GrafoMatriz;
 import edu.unlam.grafo.Nodo;
 import edu.unlam.grafo.Secuencia;
@@ -15,57 +16,14 @@ public class CasasDeRegalos {
 	}
 
 	public ArrayList<Nodo> resolver() {
-		ArrayList<Nodo> nodos = new ArrayList<>();
-		ArrayList<Nodo> nodosPintados = new ArrayList<>();
-		ArrayList<Integer> secuencia;
-		boolean pintar = true;
-		int i = 0, j = 0, color = 1;
-
-		/*
-		 * Hago una pasada y pinto los nodos(siempre que se pueda) cuento la cantidad de
-		 * nodos pintados y los guardo. hago otra pasada y pinto los nodos restantes,
-		 * cuento cuantos pinte si ese numero es mejor al anteior, lo remplazo y
-		 * remplazo todos los nodos pintados Asi sucesivamente hasta que todos los nodos
-		 * estén pintados
-		 */
-
-		// Calculo una de todas las posibles secuencias
-		secuencia = Secuencia.calcularCreciente(this.matAdyacencia);
-
-		// Agrego los nodos según la secuencia solicitada.
-		for (Integer in : secuencia)
-			nodos.add(new Nodo(in));
-
-		while (nodosPintados.size() != this.matAdyacencia.getN()) { // el corte es cuando pinté todos los nodos.
-			pintar = true;
-
-			while (j < nodosPintados.size() && pintar && nodos.get(i).getColor() == 0) { // While de los nodos pintados
-				// Este while Se fija de no seguir iteranso si no hay que pintarlo, y tambien
-				// busca no comparar un nodo ya pintado
-				if (i != j) {
-					if (this.matAdyacencia.get(nodos.get(i).getId(), nodosPintados.get(j).getId()) == 1
-							&& nodosPintados.get(j).getColor() == color)  //Si hay union y sus colores son iguales, no debo pintarlo.
-						pintar = false;
-				}
-				j++;
-			}
-
-			if (pintar && nodos.get(i).getColor() == 0) {	//Si hay que pintarlo y no tiene color, lo pinto.
-				nodos.get(i).pintar(color);
-				nodosPintados.add(nodos.get(i));
-			}
-
-			i++;	//Itero los nodos
-			j = 0; //Reseteo el indide de nodos pintados
-
-			if (i == nodos.size()) { // termino la secuencia, cambio de color.
-				i = 0;
-				color++; // reseteo la secuencia y cambio de color
-			}
-		}
-
-		return nodosPintados;
-
+		ArrayList<Nodo> resultado = new ArrayList<>();
+		ArrayList<Nodo> nodosPintados;
+		
+		nodosPintados = Coloreo.colorear(this.matAdyacencia);
+		
+		//Hacer lo que pide el enunciado, aquellos nodos que tengan color maximo.
+				
+		return resultado;
 	}
 
 	public GrafoMatriz getMatAdyacencia() {
