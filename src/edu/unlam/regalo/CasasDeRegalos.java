@@ -40,24 +40,25 @@ public class CasasDeRegalos {
 			pintar = true;
 
 			while (j < nodosPintados.size() && pintar && nodos.get(i).getColor() == 0) { // While de los nodos pintados
+				// Este while Se fija de no seguir iteranso si no hay que pintarlo, y tambien
+				// busca no comparar un nodo ya pintado
 				if (i != j) {
-
 					if (this.matAdyacencia.get(nodos.get(i).getId(), nodosPintados.get(j).getId()) == 1
-							&& nodosPintados.get(j).getColor() == color)
+							&& nodosPintados.get(j).getColor() == color)  //Si hay union y sus colores son iguales, no debo pintarlo.
 						pintar = false;
 				}
 				j++;
 			}
 
-			if (pintar && nodos.get(i).getColor() == 0) {
+			if (pintar && nodos.get(i).getColor() == 0) {	//Si hay que pintarlo y no tiene color, lo pinto.
 				nodos.get(i).pintar(color);
 				nodosPintados.add(nodos.get(i));
 			}
 
-			i++;
-			j = 0;
+			i++;	//Itero los nodos
+			j = 0; //Reseteo el indide de nodos pintados
 
-			if (i == secuencia.size()) { // termino la secuencia, no el pintado.
+			if (i == nodos.size()) { // termino la secuencia, cambio de color.
 				i = 0;
 				color++; // reseteo la secuencia y cambio de color
 			}
