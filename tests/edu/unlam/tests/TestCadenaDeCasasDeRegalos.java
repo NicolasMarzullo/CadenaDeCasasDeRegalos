@@ -1,10 +1,12 @@
 package edu.unlam.tests;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
 import edu.unlam.grafo.GrafoMatriz;
+import edu.unlam.grafo.Nodo;
 import edu.unlam.regalo.ArchivoRegalo;
 import edu.unlam.regalo.CasasDeRegalos;
 
@@ -22,6 +24,17 @@ public class TestCadenaDeCasasDeRegalos {
 			System.out.println();
 		}
 
+	}
+	
+	@Test
+	public void testAlgoritmoPintado() throws FileNotFoundException {
+		CasasDeRegalos casas = ArchivoRegalo.cargarDatos("tests/edu/unlam/tests/in/01_CasoEnunciado.in");
+		 
+		ArrayList<Nodo> nodosPintados = casas.resolver();
+		
+		for(Nodo n: nodosPintados)
+			System.out.println(n);
+		
 	}
 
 }

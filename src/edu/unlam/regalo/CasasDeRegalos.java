@@ -14,11 +14,12 @@ public class CasasDeRegalos {
 		this.matAdyacencia = matAdyacencia;
 	}
 
-	public ArrayList<Integer> resolver() {
-		ArrayList<Integer> nodosSinPintar = new ArrayList<>();
-		ArrayList<Integer> nodosPintados = new ArrayList<>();
+	public ArrayList<Nodo> resolver() {
+		ArrayList<Nodo> nodos = new ArrayList<>();
+		ArrayList<Nodo> nodosPintados = new ArrayList<>();
 		ArrayList<Integer> secuencia;
-		boolean quedanNodosPorPintar = true;
+		boolean pintar = true;
+		int i = 0, j = 0, color = 1;
 
 		/*
 		 * Hago una pasada y pinto los nodos(siempre que se pueda) cuento la cantidad de
@@ -31,18 +32,39 @@ public class CasasDeRegalos {
 		// Calculo una de todas las posibles secuencias
 		secuencia = Secuencia.calcularCreciente(this.matAdyacencia);
 
-		// Pinto el primer nodo de la secuencia
-		nodosPintados.add(secuencia.get(0));
+		// Agrego los nodos según la secuencia solicitada.
+		for (Integer in : secuencia)
+			nodos.add(new Nodo(in));
 
-		//
-		for (Integer i : secuencia) {
-			for (int j = 0; j < secuencia.size(); j++) {
-				
+		while (nodosPintados.size() != this.matAdyacencia.getN()) { // el corte es cuando pinté todos los nodos.
+			pintar = true;
+
+			while (j < nodosPintados.size() && pintar && nodos.get(i).getColor() == 0) { // While de los nodos pintados
+				if (i != j) {
+
+					if (this.matAdyacencia.get(nodos.get(i).getId(), nodosPintados.get(j).getId()) == 1
+							&& nodosPintados.get(j).getColor() == color)
+						pintar = false;
+				}
+				j++;
+			}
+
+			if (pintar && nodos.get(i).getColor() == 0) {
+				nodos.get(i).pintar(color);
+				nodosPintados.add(nodos.get(i));
+			}
+
+			i++;
+			j = 0;
+
+			if (i == secuencia.size()) { // termino la secuencia, no el pintado.
+				i = 0;
+				color++; // reseteo la secuencia y cambio de color
 			}
 		}
 
-
 		return nodosPintados;
+
 	}
 
 	public GrafoMatriz getMatAdyacencia() {
